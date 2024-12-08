@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>How to use</title>
+        <link rel="manifest" href="/AT1/manifest.json">
+        <style>
+            body {
+                font-family: 'Times New Roman', Times, serif;
+                margin: 20px;
+                padding: 20px;
+                border: 4px solid black;
+                border-radius: 10px;
+            }
+
+            h1 {
+                margin: auto;
+                text-align: center;
+                color: rgb(0, 0, 0);
+                background-color: aliceblue;
+                border: 4px solid black;
+                width: 500px;
+                border-radius: 10px;
+                height: 40px;
+            }
+
+
+            p {
+                font-size: 30px;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                margin: 0;
+            }
+
+            button {
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                width: 100px;
+                height: 50px;
+                margin: 0;
+                border: 6px solid black;
+                border-radius: 15px;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body bgcolor="#d6c69c">
+        <h1>
+            <center>
+                How to use employee manager:
+            </center>
+        </h1>
+
+        <h2>
+            <center>
+                Welcome!
+            </center>
+        </h2>
+        <p>
+            <center>
+                The website allows you to view and add emplyee details, including their ID, name, role, and salary. Follow these instructions to get started:
+            </center>
+        </p>
+        <h2>
+            <center>
+                Accessing employees:
+            </center>
+        </h2>
+        <p>
+            <center>
+                To view the list of employees, please press the 'See all employees' button to be redirected
+            </center>
+        </p>
+        <h2>
+            <center>
+                Add an employee:
+            </center>
+        </h2>
+        <p>
+            <center>
+                To add an employee, please input the employee's details in the corresponding text boxes, then press 'Add employee'
+            </center>
+        </p>
+        <p>
+            <center>
+                Press the 'How to use this site' button to access this page for further reference
+            </center>
+        </p>
+        <h2>
+            <center>
+                Logging out:
+            </center>
+        </h2>
+        <p>
+            <center>
+                To log out, simply press the 'Log out' button, you will then be redirected to the log in page
+            </center>
+        </p>
+
+        <p>
+            <center>
+                Something looks off? Simply press Command + Shift + R to fix!
+            </center>
+        </p>
+
+        <script>
+            if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/AT1/service-worker.js')
+            .then(reg => console.log('Service Worker registered!', reg))
+            .catch(err => console.log('Service Worker registration failed!', err));
+            });
+            }
+        </script>
+
+        <a href="employee_data.php"><button type="button">Go back <--</button></a>
+
+    </body>
+</html>

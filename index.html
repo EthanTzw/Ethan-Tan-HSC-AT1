@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/AT1/manifest.json">
+    <title>Login</title>
+    <style>
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: auto;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            background-color: aliceblue;
+            border: 4px solid black;
+            width: 300px;
+            border-radius: 10px;
+            height: 40px;
+        }
+
+        label {
+            margin-right: 10px;
+        }
+
+        form {
+            background-color: aliceblue;
+            margin: auto;
+            width: 300px;
+            height: auto;
+            padding: 20px;
+            border: 4px solid rgb(0, 0, 0);
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        p {
+            font-size: 30px;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        button{
+            width: 100px;
+            height: 50px;
+            margin: 0;
+            border: 6px solid black;
+            border-radius: 15px;
+            padding: 10px;
+        }
+
+        input{
+            font-family: 'Courier New', Courier, monospace;
+            width: 250px;
+            height: 30px;
+            border: 4px solid black;
+        }
+    </style>
+</head>
+
+<body bgcolor="#d6c69c">
+    <div id="frm">
+        <h1>Login</h1>
+        <form id="loginForm" method="POST" action="authentication.php">
+            <p>
+                <label>Username:</label>
+                <input type="text" id="userName" name="userName" required>
+            </p>
+            <p>
+                <label>Password:</label>
+                <input type="password" id="passWord" name="passWord" required>
+            </p>
+            <p>
+                <button type="submit" id="btn" onclick="submitLogin()">Login</button>
+            </p>
+
+        </form>
+        <div id="loginResponse"></div>
+    </div>
+    <script>
+        function submitLogin() {
+        const data = {
+        userName: document.getElementById('userName').value,
+        passWord: document.getElementById('passWord').value
+        };
+        
+        fetch('authentication.php', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+        if (result.success) {
+        window.location.href = "employee_data.php"; // Redirect on success
+        } else {
+        document.getElementById('loginResponse').innerText = result.message;
+        }
+        })
+        .catch(error => console.error('Error:', error));
+        }
+        </script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/AT1/service-worker.js')
+        .then(reg => console.log('Service Worker registered!', reg))
+        .catch(err => console.log('Service Worker registration failed!', err));
+        });
+        }
+    </script>
+</body>
+
+</html>

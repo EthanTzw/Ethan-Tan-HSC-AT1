@@ -1,0 +1,20 @@
+{
+    "name": "Employee management App",
+    "short_name": "EmployeeApp",
+    "start_url": "/AT1/index.html",
+    "display": "standalone",
+    "background_color": "#d6c69c",
+    "theme_color": "#d6c69c",
+    "icons": [
+    {
+    "src": "images/Chrom-192.png",
+    "type": "image/png",
+    "sizes": "192x192"
+    },
+    {
+    "src": "images/Chrom-512.png",
+    "type": "image/png",
+    "sizes": "512x512"
+    }
+    ]
+    }
